@@ -2,24 +2,23 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-// import { CoreModule } from './core/core.module';
+import { CoreModule } from './core/core.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialCollectionModule } from './material-collection/material-collection.module';
+import { FooterComponent } from './core/layout/footer/footer.component';
 // import { MatSliderModule } from '@angular/material/slider';
-
-
-
 
 @NgModule({
   declarations: [
     AppComponent,
-
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    // CoreModule,
+    CoreModule,
     MaterialCollectionModule,
+  ],
+  exports: [
   ],
   providers: [],
   bootstrap: [AppComponent]
