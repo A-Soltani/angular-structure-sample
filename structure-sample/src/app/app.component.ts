@@ -6,16 +6,16 @@ import { MatConfirmDialogService } from "./core/mat-confirm-dialog/mat-confirm-d
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
-  providers: [MatConfirmDialogService]
+  // providers: [MatConfirmDialogService]
 })
 export class AppComponent {
   title = 'structure-sample';
 
-  // constructor(private matConfirmDialogService: MatConfirmDialogService) {
+  constructor(private matConfirmDialogService: MatConfirmDialogService) {
 
-  // }
+  }
 
-  // onConfirm() {
-  //   this.matConfirmDialogService.openConfirmDialog();
-  // }
+  onConfirm() {
+    this.matConfirmDialogService.openConfirmDialog();
+  }
 }

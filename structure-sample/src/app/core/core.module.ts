@@ -5,6 +5,7 @@ import { FooterComponent } from './layout/footer/footer.component';
 import { MaterialCollectionModule } from ".././material-collection/material-collection.module";
 import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './home/home.component';
+import { MatConfirmDialogComponent } from './mat-confirm-dialog/mat-confirm-dialog.componet';
 
 @NgModule({
   declarations: [HeaderComponent, FooterComponent, HomeComponent],
@@ -16,11 +17,12 @@ import { HomeComponent } from './home/home.component';
   exports: [
     HeaderComponent
   ],
-  providers: [],
+  providers: [MatConfirmDialogComponent],
 })
 export class CoreModule {
   constructor(@Optional() @SkipSelf() core:CoreModule ){
     if (core) {
         throw new Error("You should import core module only in the root module")
     }
+  }
 }

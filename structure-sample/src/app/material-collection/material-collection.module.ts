@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MatDialogModule } from '@angular/material/dialog';
+import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { MatSliderModule } from '@angular/material/slider';
 
 
@@ -14,6 +14,9 @@ import { MatSliderModule } from '@angular/material/slider';
   exports: [
     MatDialogModule,
     MatSliderModule
+  ],
+  providers:[
+    MatDialog
   ]
 })
 export class MaterialCollectionModule { }

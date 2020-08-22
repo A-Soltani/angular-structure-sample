@@ -3,7 +3,9 @@ import { MatDialog } from "@angular/material/dialog";
 import { MatConfirmDialogComponent } from './mat-confirm-dialog.componet';
 
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class MatConfirmDialogService {
 
   // private x => makes private field x in the class
