@@ -6,9 +6,10 @@ import { MaterialCollectionModule } from ".././material-collection/material-coll
 import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './home/home.component';
 import { MatConfirmDialogComponent } from './mat-confirm-dialog/mat-confirm-dialog.componet';
+import { CurrencyListComponent } from './currency/currency-list/currency-list.component';
 
 @NgModule({
-  declarations: [HeaderComponent, FooterComponent, HomeComponent],
+  declarations: [HeaderComponent, FooterComponent, HomeComponent, CurrencyListComponent],
   imports: [
     CommonModule,
     MaterialCollectionModule,
