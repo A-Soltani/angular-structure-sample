@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 
 import { MatConfirmDialogService } from "./core/mat-confirm-dialog/mat-confirm-dialog.service";
+import { CurrencyService } from './currency/shared/currency.service';
+
 
 @Component({
   selector: 'app-root',
@@ -11,11 +13,19 @@ import { MatConfirmDialogService } from "./core/mat-confirm-dialog/mat-confirm-d
 export class AppComponent {
   title = 'structure-sample';
 
-  constructor(private matConfirmDialogService: MatConfirmDialogService) {
+  constructor(private currencyService: CurrencyService) {
 
   }
 
+  ngOnInit(): void {
+    this.currencyService.getCurrencies().subscribe(data => console.log(data));
+  }
+
+  // constructor(private matConfirmDialogService: MatConfirmDialogService) {
+
+  // }
+
   onConfirm() {
-    this.matConfirmDialogService.openConfirmDialog();
+    // this.matConfirmDialogService.openConfirmDialog();
   }
 }

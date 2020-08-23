@@ -6,7 +6,9 @@ import { Currency } from './currency.model';
 import { environment } from '../../../environments/environment';
 
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class CurrencyService {
   constructor(private httpClient: HttpClient) {
 
@@ -17,7 +19,7 @@ export class CurrencyService {
   //   return this.httpClient.get(getCurrenciesUrl);
   // }
   getCurrencies() {
-    let getCurrenciesUrl = `${environment.api_url}/Currency/currencies`;
+    let getCurrenciesUrl = `${environment.api_url}/api/Currency/getCurrencies`;
     return this.httpClient.get(getCurrenciesUrl);
   }
 
