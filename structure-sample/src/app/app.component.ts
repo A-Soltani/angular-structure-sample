@@ -18,7 +18,13 @@ export class AppComponent {
   }
 
   ngOnInit(): void {
-    this.currencyService.getCurrencies().subscribe(data => console.log(data));
+    // this.currencyService.getCurrencies().subscribe(data => console.log(data));
+    var result = this.currencyService.getCurrencies();
+    console.log(result);
+
+    // this.currencyService.addCurrency();
+
+
   }
 
   // constructor(private matConfirmDialogService: MatConfirmDialogService) {

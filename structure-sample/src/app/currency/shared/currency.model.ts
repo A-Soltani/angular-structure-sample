@@ -1,5 +1,10 @@
-export interface Currency {
-  code: number,
-  name: string,
+export class Currency {
+  code: number
+  name: string
   county: string
+}
+
+export class Test
+{
+  Email: string
 }
