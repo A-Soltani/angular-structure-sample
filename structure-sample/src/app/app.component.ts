@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+
 
 import { MatConfirmDialogService } from "./core/mat-confirm-dialog/mat-confirm-dialog.service";
+import { Currency } from './currency/shared/currency.model';
 import { CurrencyService } from './currency/shared/currency.service';
 
 
@@ -12,19 +15,20 @@ import { CurrencyService } from './currency/shared/currency.service';
 })
 export class AppComponent {
   title = 'structure-sample';
-
+  currencies: Currency[] = []
+  currentModel: Currency = new Currency();
   constructor(private currencyService: CurrencyService) {
 
   }
 
   ngOnInit(): void {
     // this.currencyService.getCurrencies().subscribe(data => console.log(data));
-    var result = this.currencyService.getCurrencies();
-    console.log(result);
-
+    this.currencyService.getCurrencies().subscribe(data => this.currencies = data);
     // this.currencyService.addCurrency();
+  }
 
-
+  onAdd() {
+    this.currencyService.addCurrency(this.currentModel).subscribe();
   }
 
   // constructor(private matConfirmDialogService: MatConfirmDialogService) {

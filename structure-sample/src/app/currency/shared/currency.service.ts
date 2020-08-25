@@ -23,18 +23,16 @@ export class CurrencyService {
   //   let getCurrenciesUrl = `${environment.api_url}/Currency/currencies`;
   //   return this.httpClient.get(getCurrenciesUrl);
   // }
-  getCurrencies() {
+  getCurrencies(): Observable<Currency[]> {
     let getCurrenciesUrl = `${environment.api_url}/api/Currency/getCurrencies`;
-    return this.http.get(getCurrenciesUrl).subscribe(data => console.log(data));
+    return this.http.get<Currency[]>(getCurrenciesUrl);
   }
 
-  addCurrency() {
-    let currency = new Currency();
-    currency.code = 3
-    currency.county = "Japan"
-
-    this.http.post(`${environment.api_url}/api/Currency/addCurrency`, currency).subscribe();
+  addCurrency(currency: Currency) {
+    return this.http.post(`${environment.api_url}/api/Currency/addCurrency`, currency);
   }
+
+
 
 
 }

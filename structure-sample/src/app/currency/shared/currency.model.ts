@@ -1,7 +1,7 @@
 export class Currency {
   code: number
+  country: string
   name: string
-  county: string
 }
 
 export class Test
