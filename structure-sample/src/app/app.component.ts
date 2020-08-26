@@ -24,7 +24,6 @@ export class AppComponent {
   ngOnInit(): void {
     // this.currencyService.getCurrencies().subscribe(data => console.log(data));
     this.currencyService.getCurrencies().subscribe(data => this.currencies = data);
-    // this.currencyService.addCurrency();
   }
 
   onAdd() {

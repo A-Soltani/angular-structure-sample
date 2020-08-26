@@ -29,6 +29,7 @@ export class CurrencyService {
   }
 
   addCurrency(currency: Currency) {
+    console.log(`adding ${currency}`)
     return this.http.post(`${environment.api_url}/api/Currency/addCurrency`, currency);
   }
 

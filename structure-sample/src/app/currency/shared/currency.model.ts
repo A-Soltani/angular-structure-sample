@@ -1,5 +1,5 @@
 export class Currency {
-  code: number
+  string: number
   country: string
   name: string
 }
