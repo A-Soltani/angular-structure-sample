@@ -1,1 +1,23 @@
-<p>currency-list works!</p>
+
+<div>
+  <label for="">code</label>
+	<input type="text" value="{{ currentModel.code }}" [(ngModel)]='currentModel.code'>
+  <label for="">country</label>
+	<input type="text" value="{{ currentModel.country }}" [(ngModel)]='currentModel.country'>
+  <label for="">name</label>
+	<input type="text" value="{{ currentModel.name }}" [(ngModel)]='currentModel.name'>
+</div>
+<button (click)="onAdd()">save</button>
+<table>
+  <th>index</th>
+  <th>name</th>
+  <th>code</th>
+  <th>country</th>
+
+  <tr *ngFor="let currency of currencies; let i = index">
+    <td> {{ i + 1 }} </td>
+    <td> {{ currency.code }} </td>
+    <td> {{ currency.name }} </td>
+    <td> {{ currency.country }} </td>
+  </tr>
+</table>

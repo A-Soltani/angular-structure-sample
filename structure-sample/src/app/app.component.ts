@@ -15,20 +15,15 @@ import { CurrencyService } from './currency/shared/currency.service';
 })
 export class AppComponent {
   title = 'structure-sample';
-  currencies: Currency[] = []
-  currentModel: Currency = new Currency();
+
   constructor(private currencyService: CurrencyService) {
 
   }
 
   ngOnInit(): void {
-    // this.currencyService.getCurrencies().subscribe(data => console.log(data));
-    this.currencyService.getCurrencies().subscribe(data => this.currencies = data);
   }
 
-  onAdd() {
-    this.currencyService.addCurrency(this.currentModel).subscribe();
-  }
+
 
   // constructor(private matConfirmDialogService: MatConfirmDialogService) {
 

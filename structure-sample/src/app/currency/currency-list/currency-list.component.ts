@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Currency } from '../shared/currency.model';
 import { CurrencyService } from '../shared/currency.service';
 
 @Component({
@@ -8,10 +9,18 @@ import { CurrencyService } from '../shared/currency.service';
 })
 export class CurrencyListComponent implements OnInit {
 
+  currencies: Currency[] = []
+  currentModel: Currency = new Currency();
+
   constructor(private currencyService: CurrencyService) { }
 
   ngOnInit(): void {
-    this.currencyService.getCurrencies().subscribe(data => console.log(data));
+    this.currencyService.getCurrencies().subscribe(data => this.currencies = data);
+
+  }
+
+  onAdd() {
+    this.currencyService.addCurrency(this.currentModel).subscribe();
   }
 
 }
