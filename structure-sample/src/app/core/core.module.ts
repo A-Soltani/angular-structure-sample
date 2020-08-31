@@ -1,17 +1,19 @@
 import { NgModule, Optional, SkipSelf } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
+
 import { HeaderComponent } from './layout/header/header.component';
 import { FooterComponent } from './layout/footer/footer.component';
 import { MaterialCollectionModule } from ".././material-collection/material-collection.module";
-import { HttpClientModule } from '@angular/common/http';
-import { PageNotFoundComponent, HomeComponent } from "./index";
+import { HomeComponent } from './home';
+import { PageNotFoundComponent } from "./page-not-found";
 import { MatConfirmDialogComponent } from './mat-confirm-dialog/mat-confirm-dialog.componet';
 
 @NgModule({
   declarations: [
     HeaderComponent,
     FooterComponent,
-    HomeComponent, 
+    HomeComponent,
     PageNotFoundComponent
   ],
   imports: [
