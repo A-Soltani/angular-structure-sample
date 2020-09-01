@@ -16,7 +16,7 @@ import { CurrencyService } from './currency/shared/currency.service';
 export class AppComponent {
   title = 'structure-sample';
 
-  constructor(private currencyService: CurrencyService) {
+  constructor() {
 
   }
 

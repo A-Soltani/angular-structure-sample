@@ -9,6 +9,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialCollectionModule } from './material-collection/material-collection.module';
 import { FooterComponent } from './core/layout/footer/footer.component';
 // import { MatSliderModule } from '@angular/material/slider';
+import { AppRoutingModule } from "./app.routing.module";
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { FooterComponent } from './core/layout/footer/footer.component';
     BrowserModule,
     BrowserAnimationsModule,
     FormsModule,
+    AppRoutingModule,
     CoreModule,
     MaterialCollectionModule,
 

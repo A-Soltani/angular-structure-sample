@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
+import { currencyRoutes } from './currency.routes';
 
 
 
 @NgModule({
-  imports: [
-    CommonModule
-  ]
+  imports: [RouterModule.forChild(currencyRoutes)],
+  exports: [RouterModule]
 })
 export class CurrencyRoutingModule { }
