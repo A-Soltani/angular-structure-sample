@@ -5,7 +5,7 @@ export const appRoutes: Routes = [
   { path: "", component: HomeComponent },
   {
     path: "currency",
-    loadChildren: () => import('./currency/currency.module').then(m => m.CurrencyModule)
+    loadChildren: () => import('./currency').then(m => m.CurrencyModule)
   },
   { path: '**', component: PageNotFoundComponent } // Wildcard route for a 404 page
 ]

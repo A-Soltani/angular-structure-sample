@@ -15,12 +15,13 @@ export class CurrencyListComponent implements OnInit {
   constructor(private currencyService: CurrencyService) { }
 
   ngOnInit(): void {
-    this.currencyService.getCurrencies().subscribe(data => this.currencies = data);
+    debugger;
+    // this.currencyService.getCurrencies().subscribe(data => this.currencies = data);
 
   }
 
   onAdd() {
-    this.currencyService.addCurrency(this.currentModel).subscribe();
+    // this.currencyService.addCurrency(this.currentModel).subscribe();
   }
 
 }
