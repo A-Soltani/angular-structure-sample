@@ -15,9 +15,7 @@ export class CurrencyListComponent implements OnInit {
   constructor(private currencyService: CurrencyService) { }
 
   ngOnInit(): void {
-    debugger;
-    // this.currencyService.getCurrencies().subscribe(data => this.currencies = data);
-
+    this.currencyService.getCurrencies().subscribe(data => this.currencies = data);
   }
 
   onAdd() {
