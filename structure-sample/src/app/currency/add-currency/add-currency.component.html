@@ -1,0 +1,10 @@
+
+<div>
+  <label for="">code</label>
+	<input type="text" value="{{ currency.code }}" [(ngModel)]='currency.code'>
+  <label for="">country</label>
+	<input type="text" value="{{ currency.country }}" [(ngModel)]='currency.country'>
+  <label for="">name</label>
+	<input type="text" value="{{ currency.name }}" [(ngModel)]='currency.name'>
+</div>
+<button (click)="onAdd()">save</button>

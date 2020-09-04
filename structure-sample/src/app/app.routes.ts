@@ -1,7 +1,7 @@
 import { Routes } from "@angular/router";
 import { HomeComponent, PageNotFoundComponent } from "./core/index";
 
-export const appRoutes: Routes = [
+export const APP_Routes: Routes = [
   { path: "", component: HomeComponent },
   {
     path: "currency",
