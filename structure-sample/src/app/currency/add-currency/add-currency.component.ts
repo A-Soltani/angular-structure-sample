@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Currency } from '../shared/currency.model';
 
 @Component({
@@ -8,7 +9,7 @@ import { Currency } from '../shared/currency.model';
 })
 export class AddCurrencyComponent implements OnInit {
   currency: Currency
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
     this.currency = new Currency();
@@ -16,6 +17,7 @@ export class AddCurrencyComponent implements OnInit {
 
   onAdd() {
     console.log(this.currency);
+    this.router.navigate(['/currency'])
   }
 
 }
