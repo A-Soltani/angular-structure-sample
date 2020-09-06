@@ -11,16 +11,17 @@ import { Currency } from '../shared/currency.model';
 export class EditCurrencyComponent implements OnInit {
 
   currency: Currency
-  constructor(private router: Router, private activatedRoute: ActivatedRoute) { }
+  constructor(private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.currency = new Currency();
-    this.activatedRoute.paramMap.subscribe(params => console.log(params.get('code')));
+    this.route.paramMap.subscribe(params => console.log(params.get('code')));
   }
 
   onEdit() {
     console.log(this.currency);
-    this.router.navigate(['/currency'])
+    // this.router.navigate(['/currency'])
+    this.router.navigate([''])
   }
 
 }

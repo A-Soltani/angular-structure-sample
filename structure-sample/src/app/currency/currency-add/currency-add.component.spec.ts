@@ -1,21 +1,20 @@
 // import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-// import { CurrencyListComponent } from './currency-list.component';
+// import { CurrencyAddComponent } from './currency-add.component';
 
-// describe('CurrencyListComponent', () => {
-//   let component: CurrencyListComponent;
-//   let fixture: ComponentFixture<CurrencyListComponent>;
+// describe('CurrencyAddComponent', () => {
+//   let component: CurrencyAddComponent;
+//   let fixture: ComponentFixture<CurrencyAddComponent>;
 
 //   beforeEach(async(() => {
 //     TestBed.configureTestingModule({
-//       declarations: [ CurrencyListComponent ]
-
+//       declarations: [ CurrencyAddComponent ]
 //     })
 //     .compileComponents();
 //   }));
 
 //   beforeEach(() => {
-//     fixture = TestBed.createComponent(CurrencyListComponent);
+//     fixture = TestBed.createComponent(CurrencyAddComponent);
 //     component = fixture.componentInstance;
 //     fixture.detectChanges();
 //   });

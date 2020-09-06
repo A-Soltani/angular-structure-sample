@@ -22,7 +22,8 @@ import { MatConfirmDialogComponent } from './mat-confirm-dialog/mat-confirm-dial
     HttpClientModule,
   ],
   exports: [
-    HeaderComponent
+    HeaderComponent,
+    HttpClientModule
   ],
   providers: [MatConfirmDialogComponent],
 })
