@@ -1,0 +1,16 @@
+<div>
+  <!-- <input type="number" value="{{currency.id}}" [(ngModel)]='currency.id'> -->
+  <label>code</label>
+  <input type="text" value="{{ currency.code }}" [(ngModel)]='currency.code'>
+  <label>country</label>
+  <input type="text" value="{{ currency.country }}" [(ngModel)]='currency.country'>
+  <label>name</label>
+  <input type="text" value="{{ currency.name }}" [(ngModel)]='currency.name'>
+  <label>symbol</label>
+  <input type="text" value="{{ currency.symbol }}" [(ngModel)]='currency.symbol'>
+  <label>Exchange Rate</label>
+  <input type="number" value="{{ currency.exchangeRate }}" [(ngModel)]='currency.exchangeRate'>
+  <label>Created Date</label>
+  <input type="datetime" value="{{ currency.createdDate }}" [(ngModel)]='currency.createdDate'>
+</div>
+<button (click)="onEdit()">save</button>

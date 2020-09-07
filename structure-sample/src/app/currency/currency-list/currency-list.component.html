@@ -11,6 +11,8 @@
     <td> {{ currency.code }} </td>
     <td> {{ currency.name }} </td>
     <td> {{ currency.country }} </td>
-    <td><a [routerLink]="['edit', currency.code]" routerLinkActive="active"></a></td>
+    <td> {{ currency.symbol }} </td>
+    <td> {{ currency.createdDate }} </td>
+    <td><a [routerLink]="['edit', currency.id]" routerLinkActive="active"></a></td>
   </tr>
 </table>

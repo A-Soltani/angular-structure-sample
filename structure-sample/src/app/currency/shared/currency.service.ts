@@ -26,6 +26,10 @@ export class CurrencyService {
     return this.http.post(`${environment.api_url}/api/Currency/addCurrency`, currency);
   }
 
+  getCurrency(id: number): Observable<Currency> {
+    return this.http.get<Currency>(`${environment.api_url}/api/Currency/getCurrency/${id}`)
+  }
+
 
 
 

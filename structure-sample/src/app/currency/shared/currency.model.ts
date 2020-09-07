@@ -1,10 +1,9 @@
 export class Currency {
-  code: number
+  id: number
+  code: string
   country: string
   name: string
-}
-
-export class Test
-{
-  Email: string
+  symbol: string
+  exchangeRate: number
+  createdDate: Date
 }
