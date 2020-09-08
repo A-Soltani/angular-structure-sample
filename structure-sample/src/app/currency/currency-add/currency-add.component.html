@@ -1,1 +1,9 @@
-<p>currency-add works!</p>
+<div>
+  <label>code</label>
+	<input type="text" value="{{ currency.code }}" [(ngModel)]='currency.code'>
+  <label>country</label>
+	<input type="text" value="{{ currency.country }}" [(ngModel)]='currency.country'>
+  <label>name</label>
+	<input type="text" value="{{ currency.name }}" [(ngModel)]='currency.name'>
+</div>
+<button (click)="onAdd()">save</button>
