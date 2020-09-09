@@ -6,4 +6,7 @@
   <label>name</label>
 	<input type="text" value="{{ currency.name }}" [(ngModel)]='currency.name'>
 </div>
-<button (click)="onAdd()">save</button>
+<div>
+  <button (click)="onAdd()">save</button>
+  <a routerLink = '/'>Back to list</a>
+</div>

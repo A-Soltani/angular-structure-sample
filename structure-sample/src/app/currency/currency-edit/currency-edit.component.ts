@@ -15,10 +15,8 @@ export class CurrencyEditComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
     this.currency = new Currency();
-    let id;
-    this.route.paramMap.subscribe(params => id = params.get('id'));
+    const id = this.route.snapshot.params['id'];
 
     this.currencyService.getCurrency(id).subscribe(data => this.currency = data)
 
