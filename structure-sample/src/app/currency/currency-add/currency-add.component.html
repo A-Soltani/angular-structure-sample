@@ -1,12 +1,12 @@
 <div>
   <label>code</label>
-	<input type="text" value="{{ currency.code }}" [(ngModel)]='currency.code'>
+	<input type="text" [(ngModel)]='currency.code' required>
   <label>country</label>
-	<input type="text" value="{{ currency.country }}" [(ngModel)]='currency.country'>
+	<input type="text" [(ngModel)]='currency.country'>
   <label>name</label>
-	<input type="text" value="{{ currency.name }}" [(ngModel)]='currency.name'>
+	<input type="text" [(ngModel)]='currency.name'>
 </div>
 <div>
   <button (click)="onAdd()">save</button>
-  <a routerLink = '/'>Back to list</a>
+  <a routerLink = '/currency'>Back to list</a>
 </div>
