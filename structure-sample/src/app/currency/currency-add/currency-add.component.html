@@ -1,10 +1,10 @@
 <div>
-  <label>code</label>
-	<input type="text" [(ngModel)]='currency.code' required>
-  <label>country</label>
-	<input type="text" [(ngModel)]='currency.country'>
-  <label>name</label>
-	<input type="text" [(ngModel)]='currency.name'>
+  <label for="code">code</label>
+	<input type="text" id="code" name="code" [(ngModel)]='currency.code' required>
+  <label for="">country</label>
+	<input type="text" id="country" name="country" [(ngModel)]='currency.country'>
+  <label for="">name</label>
+	<input type="text" id="name" name="name" [(ngModel)]='currency.name'>
 </div>
 <div>
   <button (click)="onAdd()">save</button>

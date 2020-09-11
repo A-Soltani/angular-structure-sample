@@ -1,16 +1,16 @@
 <div>
   <!-- <input type="number" value="{{currency.id}}" [(ngModel)]='currency.id'> -->
-  <label>code</label>
-  <input type="text" value="{{ currency.code }}" [(ngModel)]='currency.code'>
-  <label>country</label>
-  <input type="text" value="{{ currency.country }}" [(ngModel)]='currency.country'>
-  <label>name</label>
-  <input type="text" value="{{ currency.name }}" [(ngModel)]='currency.name'>
-  <label>symbol</label>
-  <input type="text" value="{{ currency.symbol }}" [(ngModel)]='currency.symbol'>
-  <label>Exchange Rate</label>
-  <input type="number" value="{{ currency.exchangeRate }}" [(ngModel)]='currency.exchangeRate'>
-  <label>Created Date</label>
-  <input type="datetime" value="{{ currency.createdDate }}" [(ngModel)]='currency.createdDate'>
+  <label for="code">code</label>
+  <input type="text" id="code" name="code" value="{{ currency.code }}" [(ngModel)]='currency.code'>
+  <label for="country">country</label>
+  <input type="text" id="country" name="country" value="{{ currency.country }}" [(ngModel)]='currency.country'>
+  <label for="name">name</label>
+  <input type="text" id="name" name="name" value="{{ currency.name }}" [(ngModel)]='currency.name'>
+  <label for="symbol">symbol</label>
+  <input type="text" id="symbol" name="symbol" value="{{ currency.symbol }}" [(ngModel)]='currency.symbol'>
+  <label for="exchangeRate">Exchange Rate</label>
+  <input type="number" id="exchangeRate" name="exchangeRate" value="{{ currency.exchangeRate }}" [(ngModel)]='currency.exchangeRate'>
+  <label for="createdDate">Created Date</label>
+  <input type="datetime" id="createdDate" name="createdDate" value="{{ currency.createdDate }}" [(ngModel)]='currency.createdDate'>
 </div>
 <button (click)="onEdit()">save</button>
