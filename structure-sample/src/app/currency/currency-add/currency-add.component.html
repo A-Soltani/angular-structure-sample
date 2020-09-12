@@ -1,12 +1,21 @@
 <div>
-  <label for="code">code</label>
-	<input type="text" id="code" name="code" [(ngModel)]='currency.code' required>
-  <label for="">country</label>
-	<input type="text" id="country" name="country" [(ngModel)]='currency.country'>
-  <label for="">name</label>
-	<input type="text" id="name" name="name" [(ngModel)]='currency.name'>
+  <div>
+    <label for="code">code</label>
+    <input type="text" id="code" name="code" [(ngModel)]='currency.code' required #code='ngModel'>
+    <div [hidden] = "code.untouched || code.valid" class="error">code is required</div>
+  </div>
+  <div>
+    <label for="">country</label>
+    <input type="text" id="country" name="country" [(ngModel)]='currency.country' required>
+    <div class="error">country is required</div>
+  </div>
+  <div>
+    <label for="">name</label>
+    <input type="text" id="name" name="name" [(ngModel)]='currency.name' required>
+    <div class="error"></div>
+  </div>
 </div>
 <div>
   <button (click)="onAdd()">save</button>
-  <a routerLink = '/currency'>Back to list</a>
+  <a routerLink='/currency'>Back to list</a>
 </div>
