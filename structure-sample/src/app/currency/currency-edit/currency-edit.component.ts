@@ -19,7 +19,6 @@ export class CurrencyEditComponent implements OnInit {
     const id = this.route.snapshot.params['id'];
 
     this.currencyService.getCurrency(id).subscribe(data => this.currency = data)
-
     console.log(this.currency);
     // this.route.paramMap.subscribe(params => console.log(params.get('id')));
     // this.route.queryParams.subscribe(params => console.log(params['id']));

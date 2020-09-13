@@ -12,7 +12,7 @@
     <td> {{ currency.name }} </td>
     <td> {{ currency.country }} </td>
     <td> {{ currency.symbol }} </td>
-    <td> {{ currency.createdDate }} </td>
-    <td><a [routerLink]="['edit', currency.id]" routerLinkActive="active"></a></td>
+    <td> {{ currency.createdDate |date:'short' }} </td>
+    <td><a [routerLink]="['edit', currency.id]" routerLinkActive="active"></a>Edit</td>
   </tr>
 </table>
