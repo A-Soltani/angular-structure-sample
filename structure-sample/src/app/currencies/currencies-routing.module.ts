@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { CURRENCY_ROUTES } from './currency.routes';
+import { CURRENCY_ROUTES } from './currencies.routes';
 
 
 
