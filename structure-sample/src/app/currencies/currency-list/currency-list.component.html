@@ -1,9 +1,12 @@
 <a routerLink="add" routerLinkActive="active">new</a>
 <table>
-  <th>index</th>
-  <th>name</th>
-  <th>code</th>
-  <th>country</th>
+  <th>Index</th>
+  <th>Code</th>
+  <th>Name</th>
+  <th>Country</th>
+  <th>Symbol</th>
+  <th>Exchange Rate</th>
+  <th>Created Date</th>
   <td>Edit</td>
 
   <tr *ngFor="let currency of currencies; let i = index">
@@ -12,7 +15,8 @@
     <td> {{ currency.name }} </td>
     <td> {{ currency.country }} </td>
     <td> {{ currency.symbol }} </td>
-    <td> {{ currency.createdDate |date:'short' }} </td>
+    <td> {{ currency.exchangeRate | number:'6.0-6' }} </td>
+    <td> {{ currency.createdDate | date:'short' }} </td>
     <td><a [routerLink]="['edit', currency.id]" routerLinkActive="active"></a>Edit</td>
   </tr>
 </table>

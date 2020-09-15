@@ -20,7 +20,6 @@ export class CurrencyAddComponent implements OnInit {
   }
 
   onAdd() {
-
     console.log(this.currency);
     // this.router.navigate(['/currencies'])
   }
