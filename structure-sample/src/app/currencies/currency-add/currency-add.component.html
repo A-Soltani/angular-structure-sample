@@ -1,4 +1,4 @@
-<form action="" #form="ngForm" (ngSubmit)="onSubmit(form)">
+<form #form="ngForm" (ngSubmit)="form.valid && onSubmit()">
   <div>
     <div>
       <label for="code">code</label>
@@ -17,7 +17,7 @@
     </div>
   </div>
   <div>
-    <button (click)="onAdd()">save</button>
+    <button type="submit">Save</button>
     <button (click)="onClear()">clear form</button>
     <!-- <button (click)="form.reset()">clear form</button> -->
     <a routerLink='/currencies'>Back to list</a>

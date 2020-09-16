@@ -28,9 +28,8 @@ export class CurrencyAddComponent implements OnInit {
     this.form.reset();
   }
 
-  onSubmit(form: NgForm) {
-    console.log(form);
-    console.log(form.valid);
+  onSubmit() {
+    
   }
 
 }
