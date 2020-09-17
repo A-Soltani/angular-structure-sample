@@ -1,28 +1,29 @@
-<div>
-  <input type="number" value="{{currency.id}}" [(ngModel)]='currency.id'>
+<form #form="ngForm" (ngSubmit)="form.valid && onSubmit()">
   <div>
     <label for="code">code</label>
     <input type="text" id="code" name="code" value="{{ currency.code }}" [(ngModel)]='currency.code'>
-    <div class="error">code is required</div>
+    <div [hidden]="code.untouched || code.valid" class="error">code is required</div>
   </div>
   <div>
     <label for="country">country</label>
     <input type="text" id="country" name="country" value="{{ currency.country }}" [(ngModel)]='currency.country'>
-    <div class="error"></div>
+    <div [hidden]="country.untouched || country.valid" class="error">country is required</div>
   </div>
   <div>
     <label for="name">name</label>
     <input type="text" id="name" name="name" value="{{ currency.name }}" [(ngModel)]='currency.name'>
-    <div class="error"></div>
+    <div [hidden]="name.untouched || name.valid" class="error">name is required</div>
   </div>
-  <label for="symbol">symbol</label>
-  <input type="text" id="symbol" name="symbol" value="{{ currency.symbol }}" [(ngModel)]='currency.symbol'>
+  <div>
+    <label for="symbol">symbol</label>
+    <input type="text" id="symbol" name="symbol" value="{{ currency.symbol }}" [(ngModel)]='currency.symbol'>
+    <div [hidden]="symbol.untouched || symbol.valid" class="error">symbol is required</div>
+  </div>
   <div>
     <label for="exchangeRate">Exchange Rate</label>
-    <input type="number" id="exchangeRate" name="exchangeRate" value="{{ currency.exchangeRate }}" [(ngModel)]='currency.exchangeRate'>
-    <div class="error"></div>
+    <input type="number" id="exchangeRate" name="exchangeRate" value="{{ currency.exchangeRate }}"
+      [(ngModel)]='currency.exchangeRate'>
+    <div [hidden]="exchangeRate.untouched || exchangeRate.valid" class="error">Exchange rate is required</div>
   </div>
-  <label for="createdDate">Created Date</label>
-  <input type="datetime" id="createdDate" name="createdDate" value="{{ currency.createdDate }}" [(ngModel)]='currency.createdDate'>
-</div>
-<button (click)="onEdit()">save</button>
+  <button type="submit" [diabaled]="form.invalid">Save</button>
+</form>

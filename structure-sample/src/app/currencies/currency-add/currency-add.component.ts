@@ -3,6 +3,7 @@ import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 
 import { Currency } from '../shared/currency.model';
+import { CurrencyService } from '../shared/currency.service';
 
 @Component({
   selector: 'app-currency-add',
@@ -13,15 +14,10 @@ export class CurrencyAddComponent implements OnInit {
 
   @ViewChild('form') form: NgForm
   currency: Currency
-  constructor(private router: Router) { }
+  constructor(private currencyService: CurrencyService, private router: Router) { }
 
   ngOnInit(): void {
     this.currency = new Currency();
-  }
-
-  onAdd() {
-    console.log(this.currency);
-    // this.router.navigate(['/currencies'])
   }
 
   onClear() {
@@ -29,7 +25,8 @@ export class CurrencyAddComponent implements OnInit {
   }
 
   onSubmit() {
-    
+    this.currencyService.addCurrency(this.currency).subscribe(
+      () => this.router.navigate(['/currencies']));
   }
 
 }
