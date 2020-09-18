@@ -1,3 +1,4 @@
+import { CurrencyService } from './../shared/currency.service';
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -13,24 +14,21 @@ export class CurrencyAddComponent implements OnInit {
 
   @ViewChild('form') form: NgForm
   currency: Currency
-  constructor(private router: Router) { }
+
+  constructor(private currencyService: CurrencyService, private router: Router) { }
 
   ngOnInit(): void {
     this.currency = new Currency();
   }
 
-  onAdd() {
-    console.log(this.currency);
-    // this.router.navigate(['/currencies'])
+  onSave() {
+    this.currency.createdDate = new Date();
+    this.currencyService.addCurrency(this.currency).subscribe();
+    this.router.navigate(['/currencies'])
   }
 
   onClear() {
     this.form.reset();
-  }
-
-  onSubmit(form: NgForm) {
-    console.log(form);
-    console.log(form.valid);
   }
 
 }
