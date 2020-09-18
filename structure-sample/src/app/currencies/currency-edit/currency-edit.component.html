@@ -1,29 +1,29 @@
 <form #form="ngForm" (ngSubmit)="form.valid && onSubmit()">
   <div>
     <label for="code">code</label>
-    <input type="text" id="code" name="code" value="{{ currency.code }}" [(ngModel)]='currency.code'>
+    <input type="text" id="code" name="code" #code value="{{ currency.code }}" [(ngModel)]='currency.code'>
     <div [hidden]="code.untouched || code.valid" class="error">code is required</div>
   </div>
   <div>
     <label for="country">country</label>
-    <input type="text" id="country" name="country" value="{{ currency.country }}" [(ngModel)]='currency.country'>
+    <input type="text" id="country" name="country" #country value="{{ currency.country }}" [(ngModel)]='currency.country'>
     <div [hidden]="country.untouched || country.valid" class="error">country is required</div>
   </div>
   <div>
     <label for="name">name</label>
-    <input type="text" id="name" name="name" value="{{ currency.name }}" [(ngModel)]='currency.name'>
+    <input type="text" id="name" name="name" #name value="{{ currency.name }}" [(ngModel)]='currency.name'>
     <div [hidden]="name.untouched || name.valid" class="error">name is required</div>
   </div>
   <div>
     <label for="symbol">symbol</label>
-    <input type="text" id="symbol" name="symbol" value="{{ currency.symbol }}" [(ngModel)]='currency.symbol'>
+    <input type="text" id="symbol" name="symbol" #symbol value="{{ currency.symbol }}" [(ngModel)]='currency.symbol'>
     <div [hidden]="symbol.untouched || symbol.valid" class="error">symbol is required</div>
   </div>
   <div>
     <label for="exchangeRate">Exchange Rate</label>
-    <input type="number" id="exchangeRate" name="exchangeRate" value="{{ currency.exchangeRate }}"
+    <input type="number" id="exchangeRate" name="exchangeRate" #exchangeRate value="{{ currency.exchangeRate }}"
       [(ngModel)]='currency.exchangeRate'>
     <div [hidden]="exchangeRate.untouched || exchangeRate.valid" class="error">Exchange rate is required</div>
   </div>
-  <button type="submit" [diabaled]="form.invalid">Save</button>
+  <button type="submit" [disabled]="form.invalid">Save</button>
 </form>
