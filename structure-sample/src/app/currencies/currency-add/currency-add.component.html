@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 <form #form="ngForm" (ngSubmit)="form.valid && onSave()">
+=======
+<form #form="ngForm" (ngSubmit)="form.valid && onSubmit()">
+>>>>>>> 5fea1772472768fb299aba3221a5a6fbf9bdd4ff
   <div>
     <div>
       <label for="code">code</label>
@@ -7,6 +11,7 @@
     </div>
     <div>
       <label for="country">country</label>
+<<<<<<< HEAD
       <input type="text" id="country" name="country" #country='ngModel' [(ngModel)]='currency.country' required>
       <div [hidden]="country.untouched || country.valid" class="error">currency is required</div>
     </div>
@@ -24,6 +29,20 @@
   <div>
     <button type="submit" [disabled]='form.invalid'>Save</button>
     <button (click)="onClear()">clear form</button>
+=======
+      <input type="text" id="country" name="country" [(ngModel)]='currency.country' required>      
+      <div [hidden]="country.untouched || country.valid" class="error">country is required</div>
+    </div>
+    <div>
+      <label for="name">name</label>
+      <input type="text" id="name" name="name" [(ngModel)]='currency.name' required>
+      <div [hidden]="name.untouched || name.valid" class="error">name is required</div>
+    </div>
+  </div>
+  <div>
+    <button type="submit" [diabaled]="form.invalid">Save</button>
+    <button (click)="onClear()">Clear form</button>    
+>>>>>>> 5fea1772472768fb299aba3221a5a6fbf9bdd4ff
     <a routerLink='/currencies'>Back to list</a>
   </div>
 </form>

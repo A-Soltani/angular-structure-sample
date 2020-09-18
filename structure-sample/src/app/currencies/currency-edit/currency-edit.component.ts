@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router  } from '@angular/router';
 import { Currency } from '../shared/currency.model';
 import { CurrencyService } from '../shared/currency.service';
 
@@ -11,22 +11,20 @@ import { CurrencyService } from '../shared/currency.service';
 export class CurrencyEditComponent implements OnInit {
 
   currency: Currency
-  constructor(private route: ActivatedRoute, private currencyService: CurrencyService) {
+  constructor(private route: ActivatedRoute, private currencyService: CurrencyService, private router: Router) {
   }
 
   ngOnInit(): void {
     this.currency = new Currency();
     const id = this.route.snapshot.params['id'];
-
-    this.currencyService.getCurrency(id).subscribe(data => this.currency = data)
-    console.log(this.currency);
-    // this.route.paramMap.subscribe(params => console.log(params.get('id')));
-    // this.route.queryParams.subscribe(params => console.log(params['id']));
-
+    this.currencyService.getCurrency(id).subscribe(data => this.currency = data) 
   }
 
-  onEdit() {
-
+  onSubmit() {
+    this.currencyService.updateCurrency(this.currency).subscribe(
+      c =>
+      this.currency = c;
+      this.router.navigate(['/currencies']));
   }
 
 }
