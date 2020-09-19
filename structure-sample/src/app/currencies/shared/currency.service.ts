@@ -11,26 +11,26 @@ import { environment } from '../../../environments/environment';
   providedIn: 'root'
 })
 export class CurrencyService {
-
+  private url = `${environment.api_url}/api/Currency`;
   constructor(private http: HttpClient) {
 
   }
 
   getCurrencies(): Observable<Currency[]> {
-    let getCurrenciesUrl = `${environment.api_url}/api/Currency/getCurrencies`;
+    let getCurrenciesUrl = `${this.url}/getCurrencies`;
     return this.http.get<Currency[]>(getCurrenciesUrl);
   }
 
-  addCurrency(currency: Currency) : Observable {    
-    return this.http.post(`${environment.api_url}/api/Currency/addCurrency`, currency);
+  addCurrency(currency: Currency) : Observable<number> {
+    return this.http.post<number>(`${this.url}/addCurrency`, currency);
   }
 
-  updateCurrency(currency: Currency) : Observable<Currency> {    
-    return this.http.post(`${environment.api_url}/api/Currency/addCurrency`, currency);
+  updateCurrency(currency: Currency) : Observable<Currency> {
+    return this.http.put<Currency>(`${this.url}/updateCurrency`, currency);
   }
 
   getCurrency(id: number): Observable<Currency> {
-    return this.http.get<Currency>(`${environment.api_url}/api/Currency/getCurrency/${id}`)
+    return this.http.get<Currency>(`${this.url}/getCurrency/${id}`)
   }
 
 

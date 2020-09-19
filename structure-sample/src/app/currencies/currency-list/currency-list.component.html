@@ -17,6 +17,8 @@
     <td> {{ currency.symbol }} </td>
     <td> {{ currency.exchangeRate | number:'6.0-6' }} </td>
     <td> {{ currency.createdDate | date:'short' }} </td>
-    <td><a [routerLink]="['edit', currency.id]" routerLinkActive="active"></a>Edit</td>
+    <td>
+      <a [routerLink]="['edit', currency.id]" routerLinkActive="active">Edit</a>
+    </td>
   </tr>
 </table>

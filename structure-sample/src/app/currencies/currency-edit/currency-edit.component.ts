@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router  } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Currency } from '../shared/currency.model';
 import { CurrencyService } from '../shared/currency.service';
 
@@ -17,14 +17,14 @@ export class CurrencyEditComponent implements OnInit {
   ngOnInit(): void {
     this.currency = new Currency();
     const id = this.route.snapshot.params['id'];
-    this.currencyService.getCurrency(id).subscribe(data => this.currency = data) 
+    this.currencyService.getCurrency(id).subscribe(data => this.currency = data)
   }
 
   onSubmit() {
-    this.currencyService.updateCurrency(this.currency).subscribe(
-      c =>
-      this.currency = c;
-      this.router.navigate(['/currencies']));
+    this.currencyService.updateCurrency(this.currency).subscribe((response: Currency) => {
+      this.currency = response;
+      this.router.navigate(['/currencies'])
+    });
   }
 
 }
