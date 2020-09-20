@@ -18,8 +18,10 @@ export class CurrencyListComponent implements OnInit {
     this.currencyService.getCurrencies().subscribe(data => this.currencies = data);
   }
 
-  onAdd() {
-    // this.currencyService.addCurrency(this.currentModel).subscribe();
+  onDelete(id: number) {
+    this.currencyService.deleteCurrency(id).subscribe(() => {
+      console.log(`currency with ${id} has been deleted`);
+    })
   }
 
 }

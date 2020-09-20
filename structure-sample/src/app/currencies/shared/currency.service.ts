@@ -30,10 +30,12 @@ export class CurrencyService {
   }
 
   getCurrency(id: number): Observable<Currency> {
-    return this.http.get<Currency>(`${this.url}/getCurrency/${id}`)
+    return this.http.get<Currency>(`${this.url}/getCurrency/${id}`);
   }
 
-
+  deleteCurrency(id: number) {
+    return this.http.delete(`${this.url}/deleteCurrency/${id}`);
+  }
 
 
 }

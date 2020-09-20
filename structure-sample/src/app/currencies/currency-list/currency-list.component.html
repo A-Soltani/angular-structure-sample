@@ -8,6 +8,7 @@
   <th>Exchange Rate</th>
   <th>Created Date</th>
   <td>Edit</td>
+  <td>Delete</td>
 
   <tr *ngFor="let currency of currencies; let i = index">
     <td> {{ i + 1 }} </td>
@@ -19,6 +20,9 @@
     <td> {{ currency.createdDate | date:'short' }} </td>
     <td>
       <a [routerLink]="['edit', currency.id]" routerLinkActive="active">Edit</a>
+    </td>
+    <td>
+      <a href="#" (click)="onDelete(currency.id)" onclick="return false">Delete</a>
     </td>
   </tr>
 </table>
