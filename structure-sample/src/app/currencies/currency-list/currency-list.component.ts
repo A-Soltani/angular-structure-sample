@@ -15,7 +15,14 @@ export class CurrencyListComponent implements OnInit {
   constructor(private currencyService: CurrencyService) { }
 
   ngOnInit(): void {
-    this.currencyService.getCurrencies().subscribe(data => this.currencies = data);
+    this.currencyService.getCurrencies().subscribe(
+      response => {
+        this.currencies = response;
+      },
+      error => {
+        console.error('An unexpected error occured', error);
+      }
+    );
   }
 
   onDelete(id: number) {
