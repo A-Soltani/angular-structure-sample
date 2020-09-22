@@ -1,7 +1,9 @@
+import { NotFoundError } from './../../core/shared/models/errors/not-found-error';
+import { AppError } from './../../core/shared/models/errors/app-error';
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from "@angular/common/http";
 
-import { Observable, of } from 'rxjs';
+import { Observable, of, throwError } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 
 import { Currency } from './currency.model';
@@ -21,12 +23,17 @@ export class CurrencyService {
     return this.http.get<Currency[]>(getCurrenciesUrl);
   }
 
-  addCurrency(currency: Currency) : Observable<number> {
+  addCurrency(currency: Currency): Observable<number> {
     return this.http.post<number>(`${this.url}/addCurrency`, currency);
   }
 
-  updateCurrency(currency: Currency) : Observable<Currency> {
-    return this.http.put<Currency>(`${this.url}/updateCurrency`, currency);
+  updateCurrency(currency: Currency): Observable<Currency> {
+    return this.http.put<Currency>(`${this.url}/updateCurrency`, currency)
+    .pipe(catchError(
+      (error: Response) => {
+        if(error.status === 404)
+        return throwError(new NotFoundError(error))})
+      );
   }
 
   getCurrency(id: number): Observable<Currency> {
@@ -34,7 +41,10 @@ export class CurrencyService {
   }
 
   deleteCurrency(id: number) {
-    return this.http.delete(`${this.url}/deleteCurrency/${id}`);
+    return this.http.delete(`${this.url}/deleteCurrency/${id}`)
+      .pipe(catchError(error => {
+        return throwError(error);
+      }));
   }
 
 
