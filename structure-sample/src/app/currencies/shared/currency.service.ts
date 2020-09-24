@@ -1,3 +1,4 @@
+import { BadInput } from './../../core/shared/models/errors/bad-input';
 import { NotFoundError } from './../../core/shared/models/errors/not-found-error';
 import { AppError } from './../../core/shared/models/errors/app-error';
 import { Injectable } from '@angular/core';
@@ -24,15 +25,24 @@ export class CurrencyService {
   }
 
   addCurrency(currency: Currency): Observable<number> {
-    return this.http.post<number>(`${this.url}/addCurrency`, currency);
+    return this.http.post<number>(`${this.url}/addCurrency`, currency)
+      .pipe(
+        catchError((error: Response) => {
+          if (error.status === 400)
+            return throwError(new BadInput(error));
+        })
+      );
   }
 
   updateCurrency(currency: Currency): Observable<Currency> {
     return this.http.put<Currency>(`${this.url}/updateCurrency`, currency)
-    .pipe(catchError(
-      (error: Response) => {
-        if(error.status === 404)
-        return throwError(new NotFoundError(error))})
+      .pipe(
+        catchError((error: Response) => {
+          if (error.status === 400)
+            return throwError(new BadInput(error));
+          else if (error.status === 404)
+            return throwError(new NotFoundError(error));
+        })
       );
   }
 
