@@ -1,4 +1,4 @@
-import { AppError } from './../../core/shared/models/errors/app-error';
+import { AppError } from '../../shared/models/errors/app-error';
 import { NotFoundError } from './../../core/shared/models/errors/not-found-error';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';

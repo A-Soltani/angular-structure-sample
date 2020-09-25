@@ -1,5 +1,5 @@
 import { NotFoundError } from './../../core/shared/models/errors/not-found-error';
-import { AppError } from './../../core/shared/models/errors/app-error';
+import { AppError } from '../../shared/models/errors/app-error';
 import { error } from '@angular/compiler/src/util';
 import { Component, OnInit } from '@angular/core';
 import { Currency } from '../shared/currency.model';

@@ -1,6 +1,5 @@
-import { BadInput } from './../../core/shared/models/errors/bad-input';
-import { NotFoundError } from './../../core/shared/models/errors/not-found-error';
-import { AppError } from './../../core/shared/models/errors/app-error';
+
+import { AppError, BadInput, NotFoundError } from "../../shared";
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from "@angular/common/http";
 

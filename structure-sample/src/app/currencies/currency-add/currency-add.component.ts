@@ -1,3 +1,5 @@
+import { AppError } from '../../shared/models/errors/app-error';
+import { error } from '@angular/compiler/src/util';
 import { CurrencyService } from './../shared/currency.service';
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
@@ -30,6 +32,9 @@ export class CurrencyAddComponent implements OnInit {
         (response: number) => {
           this.currency.id = response;
           this.router.navigate(['/currencies']);
+        },
+        (error: AppError) => {
+
         });
   }
 
