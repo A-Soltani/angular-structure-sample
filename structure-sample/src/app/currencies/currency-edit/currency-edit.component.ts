@@ -1,9 +1,10 @@
+import { AppErrorHandler } from './../../shared/models/errors/app-error-handler';
 import { AppError } from '../../shared/models/errors/app-error';
-import { NotFoundError } from './../../core/shared/models/errors/not-found-error';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Currency } from '../shared/currency.model';
 import { CurrencyService } from '../shared/currency.service';
+import { NotFoundError } from 'src/app/shared';
 
 @Component({
   selector: 'app-currency-edit',
@@ -29,8 +30,9 @@ export class CurrencyEditComponent implements OnInit {
           this.currency = response;
           this.router.navigate(['/currencies'])
         },
-        (error: NotFoundError) => {
-          alert('This currency deosn\'t exist right now.');
+        (error: AppError) => {
+          if (error instanceof NotFoundError)
+            alert('This currency deosn\'t exist right now.');
         });
   }
 

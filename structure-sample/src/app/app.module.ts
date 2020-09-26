@@ -7,7 +7,7 @@ import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
 import { MaterialCollectionModule } from './material-collection/material-collection.module';
 import { AppRoutingModule } from "./app.routing.module";
-// import { MatSliderModule } from '@angular/material/slider';
+import { AppErrorHandler } from './shared';
 
 @NgModule({
   declarations: [

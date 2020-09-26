@@ -1,11 +1,11 @@
-import { AppError } from '../../shared/models/errors/app-error';
-import { error } from '@angular/compiler/src/util';
+
 import { CurrencyService } from './../shared/currency.service';
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 
 import { Currency } from '../shared/currency.model';
+import { AppError, BadInput } from 'src/app/shared';
 
 @Component({
   selector: 'app-currency-add',
@@ -34,7 +34,8 @@ export class CurrencyAddComponent implements OnInit {
           this.router.navigate(['/currencies']);
         },
         (error: AppError) => {
-
+          if (error instanceof BadInput)
+            alert('Bad request error occured');
         });
   }
 
