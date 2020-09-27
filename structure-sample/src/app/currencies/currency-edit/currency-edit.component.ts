@@ -1,3 +1,4 @@
+import { error } from '@angular/compiler/src/util';
 import { AppErrorHandler } from './../../shared/models/errors/app-error-handler';
 import { AppError } from '../../shared/models/errors/app-error';
 import { Component, OnInit } from '@angular/core';
@@ -33,6 +34,7 @@ export class CurrencyEditComponent implements OnInit {
         (error: AppError) => {
           if (error instanceof NotFoundError)
             alert('This currency deosn\'t exist right now.');
+          else throw error;
         });
   }
 
