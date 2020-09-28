@@ -29,8 +29,8 @@ export class CurrencyAddComponent implements OnInit {
   onSubmit() {
     this.currencyService.addCurrency(this.currency)
       .subscribe(
-        (response: number) => {
-          this.currency.id = response;
+        (currencyId: number) => {
+          this.currency.id = currencyId;
           this.router.navigate(['/currencies']);
         },
         (error: AppError) => {
