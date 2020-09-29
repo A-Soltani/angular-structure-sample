@@ -23,7 +23,7 @@ export class CurrencyListComponent implements OnInit {
 
   onDelete(id: number) {
     this.currencyService.deleteCurrency(id)
-      .subscribe(response => alert(`currency with ${id} has been deleted`),
+      .subscribe(() => alert(`currency with ${id} has been deleted`),
         (error: AppError) => {
           if (error instanceof NotFoundError)
             alert('This currency has already been deleted');
