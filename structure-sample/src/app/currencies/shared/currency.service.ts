@@ -1,7 +1,7 @@
 
 import { AppError, BadInput, NotFoundError } from "../../shared";
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders, HttpParams } from "@angular/common/http";
+import { HttpClient, HttpErrorResponse, HttpHeaders, HttpParams } from "@angular/common/http";
 
 import { Observable, of, throwError } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
@@ -24,7 +24,7 @@ export class CurrencyService {
   addCurrency(currency: Currency): Observable<number> {
     return this.http.post<number>(`${this.url}/addCurrency`, currency)
       .pipe(
-        catchError((error: Response) => {
+        catchError((error: HttpErrorResponse) => {
           if (error.status === 400)
             return throwError(new BadInput(error));
         })
@@ -34,7 +34,7 @@ export class CurrencyService {
   updateCurrency(currency: Currency): Observable<Currency> {
     return this.http.put<Currency>(`${this.url}/updateCurrency`, currency)
       .pipe(
-        catchError((error: Response) => {
+        catchError((error: HttpErrorResponse) => {
           if (error.status === 400)
             return throwError(new BadInput(error));
           else if (error.status === 404)
