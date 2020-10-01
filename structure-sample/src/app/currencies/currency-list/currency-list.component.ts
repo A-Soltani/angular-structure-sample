@@ -22,6 +22,7 @@ export class CurrencyListComponent implements OnInit {
   }
 
   onDelete(id: number) {
+    debugger;
     this.currencyService.deleteCurrency(id)
       .subscribe(() => alert(`currency with ${id} has been deleted`),
         (error: AppError) => {

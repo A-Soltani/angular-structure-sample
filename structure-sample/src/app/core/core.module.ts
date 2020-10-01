@@ -1,6 +1,7 @@
+import { ErrorInterceptor } from './interceptors/error.interceptor';
 import { NgModule, Optional, SkipSelf } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { HeaderComponent } from './layout/header/header.component';
 import { FooterComponent } from './layout/footer/footer.component';
@@ -25,7 +26,10 @@ import { MatConfirmDialogComponent } from './mat-confirm-dialog/mat-confirm-dial
     HeaderComponent,
     HttpClientModule
   ],
-  providers: [MatConfirmDialogComponent],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
+    MatConfirmDialogComponent
+  ],
 })
 export class CoreModule {
   constructor(@Optional() @SkipSelf() core: CoreModule) {

@@ -7,7 +7,7 @@ import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
 import { MaterialCollectionModule } from './material-collection/material-collection.module';
 import { AppRoutingModule } from "./app.routing.module";
-import { AppErrorHandler } from './shared';
+// import { AppErrorHandler } from './shared';
 
 @NgModule({
   declarations: [
@@ -23,7 +23,9 @@ import { AppErrorHandler } from './shared';
   ],
   exports: [
   ],
-  providers: [{provide: ErrorHandler, useClass: AppErrorHandler}],
+  providers: [
+    // {provide: ErrorHandler, useClass: AppErrorHandler}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
