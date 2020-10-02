@@ -28,8 +28,6 @@ export class CurrencyListComponent implements OnInit {
         (error: AppError) => {
           if (error instanceof NotFoundError)
             alert('This currency has already been deleted');
-          else
-            throw error; // this error is globaly handeled by Errorhandler class
         }
       )
   }

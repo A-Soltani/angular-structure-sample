@@ -33,7 +33,6 @@ export class CurrencyEditComponent implements OnInit {
         (error: AppError) => {
           if (error instanceof NotFoundError)
             alert('This currency deosn\'t exist right now.');
-          else throw error;
         });
   }
 
