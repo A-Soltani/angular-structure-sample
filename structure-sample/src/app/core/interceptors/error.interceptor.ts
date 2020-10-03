@@ -1,11 +1,10 @@
-import { NotFoundError } from './../../shared/models/errors/not-found-error';
-import { BadInput } from './../../shared/models/errors/bad-input';
 
 import { HttpErrorResponse, HttpEvent, HttpHandler, HttpInterceptor, HttpRequest } from "@angular/common/http";
 
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
+import { BadInput, NotFoundError } from '../../core';
 
 export class ErrorInterceptor implements HttpInterceptor {
 

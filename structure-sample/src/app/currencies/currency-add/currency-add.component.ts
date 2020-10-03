@@ -5,7 +5,7 @@ import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 
 import { Currency } from '../shared/currency.model';
-import { AppError, BadInput } from 'src/app/shared';
+import { AppError, BadInput } from '../../core';
 
 @Component({
   selector: 'app-currency-add',

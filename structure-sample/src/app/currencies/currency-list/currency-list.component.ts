@@ -1,8 +1,7 @@
-import { AppError } from '../../shared/models/errors/app-error';
 import { Component, OnInit } from '@angular/core';
 import { Currency } from '../shared/currency.model';
 import { CurrencyService } from '../shared/currency.service';
-import { NotFoundError } from 'src/app/shared';
+import { AppError, NotFoundError } from '../../core';
 
 @Component({
   selector: 'app-currency-list',
