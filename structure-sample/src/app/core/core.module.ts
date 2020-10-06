@@ -1,3 +1,4 @@
+import { NameValidatorDirective } from './Directives/name-validators.directive';
 import { ErrorInterceptor } from './interceptors/error.interceptor';
 import { NgModule, Optional, SkipSelf } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -15,7 +16,8 @@ import { MatConfirmDialogComponent } from './mat-confirm-dialog/mat-confirm-dial
     HeaderComponent,
     FooterComponent,
     HomeComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    NameValidatorDirective
   ],
   imports: [
     CommonModule,

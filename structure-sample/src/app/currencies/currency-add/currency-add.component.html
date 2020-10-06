@@ -2,8 +2,9 @@
   <div>
     <div>
       <label for="code">code</label>
-      <input type="text" id="code" name="code" #code='ngModel' [(ngModel)]='currency.code' required>
+      <input type="text" id="code" name="code" #code='ngModel' [(ngModel)]='currency.code' required nameValidator>
       <div [hidden]="code.untouched || code.valid" class="error">code is required</div>
+      <div *ngIf="code.errors.nameValidator">code shouldn't contain any space</div>
     </div>
     <div>
       <label for="country">country</label>

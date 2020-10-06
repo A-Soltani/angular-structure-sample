@@ -1,16 +1,17 @@
 import { Directive } from '@angular/core';
-import { AbstractControl, ValidationErrors, Validator } from '@angular/forms';
+import { AbstractControl, NG_VALIDATORS, ValidationErrors, Validator } from '@angular/forms';
 import { NameValidators } from './../validators/name.validators';
 
 @Directive({
-
+  selector: '[nameValidator][ngModel]',
+  providers: [{provide: NG_VALIDATORS, useExisting: NameValidatorDirective, multi: true}]
 })
-export class NameValidator implements Validator {
-  validate(control: AbstractControl): ValidationErrors {
-    throw new Error('Method not implemented.');
+export class NameValidatorDirective implements Validator {
+  validate(control: AbstractControl) {
+    return NameValidators.canNotContainSpace(control);
   }
-  registerOnValidatorChange?(fn: () => void): void {
-    throw new Error('Method not implemented.');
-  }
+  // registerOnValidatorChange?(fn: () => void): void {
+  //   throw new Error('Method not implemented.');
+  // }
 
 }
