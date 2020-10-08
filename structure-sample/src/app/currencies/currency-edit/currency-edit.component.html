@@ -1,12 +1,13 @@
 <form #form="ngForm" (ngSubmit)="form.valid && onSubmit()">
   <div>
     <label for="code">code</label>
-    <input type="text" id="code" name="code" #code value="{{ currency.code }}" [(ngModel)]='currency.code'>
+    <input required type="text" id="code" name="code" #code value="{{ currency.code }}" [(ngModel)]='currency.code'>
     <div [hidden]="code.untouched || code.valid" class="error">code is required</div>
   </div>
   <div>
     <label for="country">country</label>
-    <input type="text" id="country" name="country" #country value="{{ currency.country }}" [(ngModel)]='currency.country'>
+    <input required type="text" id="country" name="country" #country value="{{ currency.country }}"
+      [(ngModel)]='currency.country'>
     <div [hidden]="country.untouched || country.valid" class="error">country is required</div>
   </div>
   <div>
