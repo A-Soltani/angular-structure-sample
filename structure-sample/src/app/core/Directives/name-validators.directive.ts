@@ -12,7 +12,7 @@ import { NameValidators } from './../validators/name.validators';
     }
   ]
 })
-export class NameValidatorDirective  {
+export class NameValidatorDirective  validation {
   // validate(control: AbstractControl) {
   //   return NameValidators.canNotContainSpace(control);
   // }
