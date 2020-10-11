@@ -3,21 +3,19 @@ import { AbstractControl, NG_VALIDATORS, ValidationErrors, Validator } from '@an
 import { NameValidators } from './../validators/name.validators';
 
 @Directive({
-  selector: '[nameMatch][ngModel]',
+  selector: '[nameMatch]',
   providers: [
     {
       provide: NG_VALIDATORS,
-      useValue: NameValidators.canNotContainSpace,
+      useExisting: NameValidatorDirective,
       multi: true
     }
   ]
 })
-export class NameValidatorDirective  {
-  // validate(control: AbstractControl) {
-  //   return NameValidators.canNotContainSpace(control);
-  // }
-  // registerOnValidatorChange?(fn: () => void): void {
-  //   throw new Error('Method not implemented.');
-  // }
+export class NameValidatorDirective implements Validator {
+  validate(control: AbstractControl) {
+    return NameValidators.canNotContainSpace(control)
+  }
+
 
 }
