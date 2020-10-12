@@ -16,3 +16,4 @@ export class NameValidatorDirective implements Validator {
   validate(control: AbstractControl) {
     return NameValidators.canNotContainSpace(control)
   }
+}

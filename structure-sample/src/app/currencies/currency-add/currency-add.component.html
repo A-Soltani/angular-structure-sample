@@ -1,11 +1,11 @@
 <form #form="ngForm" (ngSubmit)="form.valid && onSubmit()">
   <div>
-    <div>
+    <!-- <div>
       <label for="code">code</label>
       <input type="text" id="code" name="code" #code='ngModel' [(ngModel)]='currency.code' required nameMatch>
       <div [hidden]="code.untouched || code.valid" class="error">code is required</div>
       <div *ngIf="code.errors.nameMatch">code shouldn't contain any space</div>
-    </div>
+    </div> -->
     <div>
       <label for="country">country</label>
       <input type="text" id="country" name="country" #country='ngModel' [(ngModel)]='currency.country' required>
@@ -18,9 +18,26 @@
     </div>
     <div>
       <label for="symbol">symbol</label>
-      <input type="text" id="symbol" name="symbol" #symbol value="{{ currency.symbol }}" [(ngModel)]='currency.symbol'>
+      <input type="text" id="symbol" name="symbol" #symbol [(ngModel)]='currency.symbol'>
       <div [hidden]="symbol.untouched || symbol.valid" class="error">symbol is required</div>
     </div>
+    <div>
+      <label for="symbol">Exchange Rate</label>
+      <input type="text" id="exchangeRate" name="exchangeRate" #exchangeRate [(ngModel)]='currency.exchangeRate'>
+      <div [hidden]="exchangeRate.untouched || exchangeRate.valid" class="error">Exchange Rate is required</div>
+    </div>
+    <div>
+      <label for="numVal">Number :</label>
+
+      <input type="text" name="numVal" ngModel #numVal="ngModel" gteValidator gteNum="20">
+
+      <div *ngIf="!numVal.valid && (numVal.dirty ||numVal.touched)">
+        <div *ngIf="numVal.errors.gte">
+          The number should be greater than {{numVal.errors.requiredValue}}
+        </div>
+      </div>
+    </div>
+
   </div>
   <div>
     <button type="submit" [disabled]='form.invalid'>Save</button>

@@ -17,7 +17,7 @@ import { MatConfirmDialogComponent } from './mat-confirm-dialog/mat-confirm-dial
     FooterComponent,
     HomeComponent,
     PageNotFoundComponent,
-    NameValidatorDirective
+    // NameValidatorDirective
   ],
   imports: [
     CommonModule,
