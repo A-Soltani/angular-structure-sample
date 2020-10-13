@@ -4,7 +4,7 @@ import { HttpErrorResponse, HttpEvent, HttpHandler, HttpInterceptor, HttpRequest
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
-import { BadInput, NotFoundError } from '../../core';
+import { BadInput, NotFoundError } from '../models/errors';
 
 export class ErrorInterceptor implements HttpInterceptor {
 

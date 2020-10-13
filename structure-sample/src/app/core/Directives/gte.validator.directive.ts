@@ -13,6 +13,8 @@ export class gteValidatorDirective implements Validator {
   @Input("gteNum") gteNum:number
 
   validate(control: AbstractControl): ValidationErrors {
+    debugger;
+    console.log(control);
     let v: number = +control.value;
 
     if (isNaN(v)) {
