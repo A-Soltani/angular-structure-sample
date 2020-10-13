@@ -1,3 +1,5 @@
+import { FormsModule } from '@angular/forms';
+import { NameWithNoSpaceDirective } from './core/directives/name-with-no-space.directive';
 import { gteValidatorDirective } from './core/directives/gte.validator.directive';
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
@@ -13,11 +15,13 @@ import { AppRoutingModule } from "./app.routing.module";
 @NgModule({
   declarations: [
     AppComponent,
-    gteValidatorDirective
+    gteValidatorDirective,
+    NameWithNoSpaceDirective
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    FormsModule,
     AppRoutingModule,
     CoreModule,
     MaterialCollectionModule,
