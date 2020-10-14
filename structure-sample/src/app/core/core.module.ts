@@ -1,9 +1,8 @@
-import { NameValidatorDirective } from './Directives/name-validators.directive';
-import { ErrorInterceptor } from './interceptors/error.interceptor';
 import { NgModule, Optional, SkipSelf } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
+import { ErrorInterceptor } from './interceptors/error.interceptor';
 import { HeaderComponent } from './layout/header/header.component';
 import { FooterComponent } from './layout/footer/footer.component';
 import { MaterialCollectionModule } from ".././material-collection/material-collection.module";
@@ -17,7 +16,6 @@ import { MatConfirmDialogComponent } from './mat-confirm-dialog/mat-confirm-dial
     FooterComponent,
     HomeComponent,
     PageNotFoundComponent,
-    // NameValidatorDirective
   ],
   imports: [
     CommonModule,

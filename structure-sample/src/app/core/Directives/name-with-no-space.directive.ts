@@ -10,7 +10,8 @@ import { CustomvalidationService } from "../services";
     providers: [
       {
         provide: NG_VALIDATORS,
-        useExisting: NameWithNoSpaceDirective,
+        // useExisting: NameWithNoSpaceDirective,
+        useClass: NameWithNoSpaceDirective,
         multi: true
       }
     ]
