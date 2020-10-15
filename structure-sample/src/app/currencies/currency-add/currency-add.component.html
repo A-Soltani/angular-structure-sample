@@ -1,14 +1,14 @@
-
 <form #form="ngForm" (ngSubmit)="form.valid && onSubmit()">
   <div>
     <div>
       <label for="code">code</label>
-      <input type="text" id="code" name="code" #code='ngModel' [(ngModel)]='currency.code' required appNameWithNoSpace>
-      <!-- <div [hidden]="code.untouched || code.errors?.required" class="error">code is required</div> -->
-      <!-- <div *ngIf="code.touched && !code.errors?.canNotContainSpace">code shouldn't contain any space</div> -->
-      <p *ngIf="code.errors?.canNotContainSpace">
-        code shouldn't contain any space
-    </p>
+      <input type="text" id="code" name="code" #code='ngModel' [(ngModel)]='currency.code' appNameWithNoSpace>
+
+      <div *ngIf="code.touched && code.invalid">
+        <div *ngIf="code.errors.required">code is required</div>
+        <div *ngIf="code.errors.canNotContainSpace">code shouldn't contain any space</div>
+      </div>
+
     </div>
     <div>
       <label for="country">country</label>
