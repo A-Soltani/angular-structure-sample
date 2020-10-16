@@ -11,13 +11,13 @@ import { CustomvalidationService } from "../services";
       {
         provide: NG_VALIDATORS,
         // useExisting: NameWithNoSpaceDirective,
-        useExisting: NameWithNoSpaceDirective,
+        useExisting: NameWithNoSpaceValidatorDirective,
         multi: true
       }
     ]
   }
 )
-export class NameWithNoSpaceDirective implements Validator {
+export class NameWithNoSpaceValidatorDirective implements Validator {
 
   constructor(private customvalidationService: CustomvalidationService) { }
 

@@ -6,7 +6,7 @@ import { CurrencyListComponent } from './currency-list/currency-list.component';
 import { CurrencyRoutingModule } from './currencies-routing.module';
 import { CurrencyAddComponent } from './currency-add/currency-add.component';
 import { CurrencyEditComponent } from './currency-edit/currency-edit.component';
-import { NameWithNoSpaceDirective } from '../core/directives/name-with-no-space.directive';
+import { NameWithNoSpaceValidatorDirective } from '../core/directives/name-with-no-space.directive';
 
 
 
@@ -16,7 +16,7 @@ import { NameWithNoSpaceDirective } from '../core/directives/name-with-no-space.
     CurrencyAddComponent,
     CurrencyAddComponent,
     CurrencyEditComponent,
-    NameWithNoSpaceDirective
+    NameWithNoSpaceValidatorDirective
 
   ],
   imports: [
