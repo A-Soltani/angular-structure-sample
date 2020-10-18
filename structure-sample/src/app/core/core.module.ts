@@ -1,6 +1,7 @@
 import { NgModule, Optional, SkipSelf } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { RouterModule } from '@angular/router';
 
 import { ErrorInterceptor } from './interceptors/error.interceptor';
 import { HeaderComponent } from './layout/header/header.component';
@@ -21,9 +22,12 @@ import { MatConfirmDialogComponent } from './mat-confirm-dialog/mat-confirm-dial
     CommonModule,
     MaterialCollectionModule,
     HttpClientModule,
+    RouterModule
   ],
   exports: [
     HeaderComponent,
+    FooterComponent,
+    HomeComponent,
     HttpClientModule
   ],
   providers: [
