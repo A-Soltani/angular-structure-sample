@@ -23,7 +23,9 @@ describe('HeaderComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should contain currency', () => {
-    expect(fixture.nativeElement.querySelector('[routerLink="/currencies"]'))
+  it('should contain currencies link', () => {
+    const currenciesLink = fixture.nativeElement.querySelector('[routerLink="currencies"]');
+    expect(currenciesLink).toBeTruthy();
+    expect(currenciesLink.textContent.trim()).toBe("Currency");
   })
 });
