@@ -33,5 +33,6 @@ describe('Router: App', () => {
     router.navigate(['']);
     tick();
     expect(location.path()).toBe('/home');
-  }))
+  }));
+
 });
