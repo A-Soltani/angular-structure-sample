@@ -16,7 +16,7 @@ export class CurrencyService {
   private url = `${environment.api_url}/api/Currency`;
   constructor(private http: HttpClient) { }
 
-  getCurrencies(): Observable<Currency[]> {
+  getCurrencies() {
     let getCurrenciesUrl = `${this.url}/getCurrencies`;
     return this.http.get<Currency[]>(getCurrenciesUrl);
   }

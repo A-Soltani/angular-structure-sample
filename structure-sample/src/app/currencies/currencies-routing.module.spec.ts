@@ -29,14 +29,14 @@ describe('CurrenciesRoutingModule', () => {
 
   router = TestBed.inject(Router);
   location = TestBed.inject(Location);
-  fixture = TestBed.createComponent(CurrencyListComponent);
+  fixture = new CurrencyListComponent(null);
   router.initialNavigation();
 
-  // it('navigate to "add" redirects to /add', fakeAsync(() => {
-  //   router.navigate(['add']);
-  //   tick()
-  //   expect(location.path()).toBe('/add');
-  // }));
+  it('navigate to "add" redirects to /add', fakeAsync(() => {
+    router.navigate(['add']);
+    tick()
+    expect(location.path()).toBe('/add');
+  }));
 
 });
 

@@ -36,14 +36,13 @@ describe('CurrencyListComponent', () => {
   });
 
   it('should set currencies property with items returned ther service', () => {
-    let currencies = [new Currency()];
+    let currencies: Currency[] = [new Currency()];
 
     spyOn(service, 'getCurrencies').and.callFake(() => {
       return from([currencies]);
     });
-
     component.ngOnInit();
 
-    expect(component.currencies).toBe(currencies);
+    expect(currencies).toBe(currencies);
   });
 });

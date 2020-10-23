@@ -5,7 +5,7 @@ import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 import { CurrencyEditComponent } from './currency-edit.component';
 import { By } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { FormControl, FormsModule, NgForm } from '@angular/forms';
 
 
 describe('CurrencyEditComponent', () => {
@@ -14,7 +14,7 @@ describe('CurrencyEditComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ CurrencyEditComponent ],
+      declarations: [CurrencyEditComponent],
       imports: [
         RouterTestingModule,
         HttpClientTestingModule,
@@ -22,7 +22,7 @@ describe('CurrencyEditComponent', () => {
       ]
 
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
@@ -35,13 +35,20 @@ describe('CurrencyEditComponent', () => {
     expect(component).toBeTruthy();
   });
 
-// it('should create a form', () => {
-//   const compiled = fixture.debugElement.nativeElement;
-//   let el = compiled.querySelector('#from')
-//   expect(el).toBeTruthy();
-// })
+  // it('should create a form', () => {
+  //   const compiled = fixture.debugElement.nativeElement;
+  //   let el = compiled.querySelector('#from')
+  //   expect(el).toBeTruthy();
+  // })
 
-it('should create a form contains 5 contols', () => {
-    expect(component).toContain('code');
+  it('should create a form contains 5 contols', () => {
+    let codeControl: FormControl;
+    fixture.whenStable().then( () => {
+      codeControl = component.form.controls['code'] as FormControl;
+      console.log(component.form.controls['code']);
+   })
+   expect(codeControl).toBeTruthy();
+    // expect(component.form.controls)
   });
+
 });

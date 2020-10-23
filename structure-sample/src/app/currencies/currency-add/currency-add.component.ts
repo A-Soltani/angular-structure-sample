@@ -23,9 +23,6 @@ export class CurrencyAddComponent implements OnInit {
   }
 
   onClear() {
-    debugger;
-    console.log(this.form);
-
     this.form.reset();
   }
 

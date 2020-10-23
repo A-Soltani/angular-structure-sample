@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { NgForm } from '@angular/forms';
 
 import { Currency } from '../shared/currency.model';
 import { CurrencyService } from '../shared/currency.service';
@@ -12,6 +13,7 @@ import { AppError, NotFoundError } from '../../core';
 })
 export class CurrencyEditComponent implements OnInit {
 
+  @ViewChild('form') form: NgForm
   currency: Currency
   constructor(private route: ActivatedRoute, private currencyService: CurrencyService, private router: Router) {
   }
