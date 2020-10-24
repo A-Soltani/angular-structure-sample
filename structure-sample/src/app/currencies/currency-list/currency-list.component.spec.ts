@@ -10,7 +10,7 @@ import { Currency } from '../shared/currency.model';
 
 describe('CurrencyListComponent', () => {
   let component: CurrencyListComponent;
-  let service: CurrencyService;
+  let currencyService: CurrencyService;
   let fixture: ComponentFixture<CurrencyListComponent>;
 
   beforeEach(async(() => {
@@ -28,7 +28,7 @@ describe('CurrencyListComponent', () => {
     fixture = TestBed.createComponent(CurrencyListComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
-    service = new CurrencyService(null);
+    currencyService = TestBed.inject(CurrencyService);;
   });
 
   it('should create', () => {
@@ -38,7 +38,7 @@ describe('CurrencyListComponent', () => {
   it('should set currencies property with items returned ther service', () => {
     let currencies: Currency[] = [new Currency()];
 
-    spyOn(service, 'getCurrencies').and.callFake(() => {
+    spyOn(currencyService, 'getCurrencies').and.callFake(() => {
       return from([currencies]);
     });
     component.ngOnInit();

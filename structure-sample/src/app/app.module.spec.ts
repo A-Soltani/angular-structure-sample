@@ -35,4 +35,10 @@ describe('Router: App', () => {
     expect(location.path()).toBe('/home');
   }));
 
+  it('navigate to invalid path redirects to page not found', fakeAsync(() => {
+    router.navigate(['']);
+    tick();
+    expect(location.path()).toBe('/home');
+  }));
+
 });
