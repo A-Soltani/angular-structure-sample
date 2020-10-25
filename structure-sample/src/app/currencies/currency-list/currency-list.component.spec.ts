@@ -11,6 +11,7 @@ import { Currency } from '../shared/currency.model';
 describe('CurrencyListComponent', () => {
   let component: CurrencyListComponent;
   let currencyService: CurrencyService;
+  let httpClientSpy: { get: jasmine.Spy };
   let fixture: ComponentFixture<CurrencyListComponent>;
 
   beforeEach(async(() => {
@@ -28,6 +29,7 @@ describe('CurrencyListComponent', () => {
     fixture = TestBed.createComponent(CurrencyListComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
+    httpClientSpy = jasmine.createSpyObj('HttpClient', ['get']);
     currencyService = TestBed.inject(CurrencyService);;
   });
 
