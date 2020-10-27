@@ -1,3 +1,4 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Currency } from './currency.model';
 import { HttpClient } from '@angular/common/http';
 import { inject, TestBed } from '@angular/core/testing';
@@ -15,7 +16,7 @@ describe('CurrencyService', () => {
     });
 
     // TODO: spy on other methods too
-    httpClientSpy = jasmine.createSpyObj('HttpClient', ['get']);
+    httpClientSpy = jasmine.createSpyObj('HttpClient', ['get', 'post']);
     currencyService = new CurrencyService(httpClientSpy as any);
   })
 
@@ -35,5 +36,33 @@ describe('CurrencyService', () => {
     );
     expect(httpClientSpy.get.calls.count()).toBe(1, 'one call');
   });
+
+  it('should return expected currency id (HttpClient called once)', () => {
+    const expectedCurrencyId: number = 123;
+    const fakeCurrency: Currency = new Currency();
+
+    httpClientSpy.get.and.returnValue(of(expectedCurrencyId));
+
+    currencyService.addCurrency(fakeCurrency).subscribe(
+      currencyId => expect(expectedCurrencyId).toEqual(expectedCurrencyId, 'expected currency Id'),
+      fail
+    );
+    expect(httpClientSpy.get.calls.count()).toBe(1, 'one call');
+  });
+
+  // it('should return an error when the server returns a 404', () => {
+  //   const errorResponse = new HttpErrorResponse({
+  //     error: 'test 404 error',
+  //     status: 404,
+  //     statusText: 'Not Found'
+  //   });
+
+  //   httpClientSpy.get.and.returnValue(of(errorResponse));
+
+  //   currencyService.getCurrencies().subscribe(
+  //     currencies => fail('expected an error, not currencies'),
+  //     error  => expect(error.message).toContain('test 404 error')
+  //   );
+  // });
 
 });
