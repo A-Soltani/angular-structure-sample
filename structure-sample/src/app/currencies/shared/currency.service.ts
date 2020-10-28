@@ -13,7 +13,7 @@ import { environment } from '../../../environments/environment';
   providedIn: 'root'
 })
 export class CurrencyService {
-  private url = `${environment.api_url}/api/Currency`;
+  url = `${environment.api_url}/api/Currency`;
   constructor(private http: HttpClient) { }
 
   getCurrencies() {
