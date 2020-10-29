@@ -55,12 +55,12 @@ describe('CurrencyService', () => {
 
   // });
 
-  it('should add currency and return expected currency id (HttpClient called once)', () => {
+  it('should add currency and return expected currency id', () => {
     const expectedCurrencyId: number = 123;
     const fakeNewCurrency: Currency = new Currency();
 
     currencyService.addCurrency(fakeNewCurrency).subscribe(
-      expectedCurrencyId => expect(expectedCurrencyId).toEqual(expectedCurrencyId, 'expected currency Id'),
+      currencyId => expect(currencyId).toEqual(expectedCurrencyId, 'expected currency Id'),
       fail
     );
 
@@ -71,6 +71,22 @@ describe('CurrencyService', () => {
 
     // Expect server to return the employee after POST
     const expectedResponse = new HttpResponse({ status: 201, statusText: 'Created', body: fakeNewCurrency });
+    req.event(expectedResponse);
+  });
+
+  it('should update currency and return expected currency', () => {
+    const fakeCurrency: Currency = new Currency();
+    currencyService.updateCurrency(fakeCurrency)
+      .subscribe(
+        currency => expect(currency).toEqual(fakeCurrency, 'expected currency'),
+        fail
+      );
+
+    const req = httpTestingController.expectOne(`${currencyService.url}/updateCurrency`);
+    expect(req.request.method).toEqual('PUT');
+    expect(req.request.body).toEqual(fakeCurrency);
+
+    const expectedResponse = new HttpResponse({ status: 200, statusText: 'Updated', body: fakeCurrency });
     req.event(expectedResponse);
   });
 
