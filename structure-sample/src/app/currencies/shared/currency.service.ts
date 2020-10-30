@@ -47,11 +47,8 @@ export class CurrencyService {
     return this.http.get<Currency>(`${this.url}/getCurrency/${id}`);
   }
 
-  deleteCurrency(id: number) {
-    return this.http.delete(`${this.url}/deleteCurrency/${id}`)
-      .pipe(catchError(error => {
-        return throwError(error);
-      }));
+  deleteCurrency(id: number): Observable<Currency> {
+    return this.http.delete<Currency>(`${this.url}/deleteCurrency/${id}`);
   }
 
 

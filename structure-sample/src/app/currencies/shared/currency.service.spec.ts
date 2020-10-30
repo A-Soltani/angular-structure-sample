@@ -90,6 +90,21 @@ describe('CurrencyService', () => {
     req.event(expectedResponse);
   });
 
+  it('should delete currency and return expected currency', () => {
+    const fakeCurrencyId: number = 1;
+    currencyService.deleteCurrency(fakeCurrencyId)
+      .subscribe(
+        currency => expect(currency.id).toEqual(fakeCurrencyId, 'expected currency id'),
+        fail
+      );
+
+    const req = httpTestingController.expectOne(`${currencyService.url}/deleteCurrency/${fakeCurrencyId}`);
+    expect(req.request.method).toEqual('DELETE');
+    expect(req.request.body).toEqual(fakeCurrencyId);
+
+    const expectedResponse = new HttpResponse({ status: 200, statusText: 'Deleted', body: fakeCurrencyId });
+    req.event(expectedResponse);
+  });
 
   // it('should return expected currency (HttpClient called once)', () => {
   //   const expectedCurrency: Currency = new Currency();
