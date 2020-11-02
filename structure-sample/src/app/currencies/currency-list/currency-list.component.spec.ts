@@ -37,6 +37,10 @@ describe('CurrencyListComponent', () => {
     expect(component).toBeTruthy();
   });
 
+  it('should be no currencies if there is no data', () => {
+    expect(component.currencies.length).toBe(0);
+  });
+
   it('should set currencies property with items returned ther service', () => {
     let currencies: Currency[] = [new Currency()];
 
