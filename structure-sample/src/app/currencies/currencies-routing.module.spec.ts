@@ -1,9 +1,10 @@
 import { RouterTestingModule } from '@angular/router/testing';
-import { CurrencyListComponent } from './currency-list/currency-list.component';
-import { Router } from '@angular/router';
-import { Location } from "@angular/common";
 import { TestBed, fakeAsync, tick } from '@angular/core/testing';
 
+import { Router } from '@angular/router';
+import { Location } from "@angular/common";
+
+import { CurrencyListComponent } from './currency-list/currency-list.component';
 import { CurrencyAddComponent } from './currency-add/currency-add.component';
 import { CurrencyEditComponent } from './currency-edit/currency-edit.component';
 import { CURRENCY_ROUTES } from './currencies.routes';

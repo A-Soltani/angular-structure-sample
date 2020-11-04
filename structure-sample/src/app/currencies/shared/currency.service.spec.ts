@@ -1,11 +1,11 @@
 import { HttpTestingController } from '@angular/common/http/testing';
-import { inject, TestBed } from '@angular/core/testing';
+import { TestBed } from '@angular/core/testing';
 import { HttpClientTestingModule } from "@angular/common/http/testing";
-import { of } from 'rxjs';
+
+import { HttpClient, HttpResponse } from '@angular/common/http';
 
 import { CurrencyService } from "./currency.service";
 import { Currency } from './currency.model';
-import { HttpClient, HttpResponse } from '@angular/common/http';
 
 describe('CurrencyService', () => {
   // let httpClientSpy: { get: jasmine.Spy };
