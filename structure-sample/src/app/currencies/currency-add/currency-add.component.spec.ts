@@ -1,9 +1,10 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+
 import { Router } from '@angular/router';
 import { Observable, of } from 'rxjs';
+
 import { Currency } from '../shared/currency.model';
 import { CurrencyService } from '../shared/currency.service';
-
 import { CurrencyAddComponent } from './currency-add.component';
 
 describe('CurrencyAddComponent', () => {
