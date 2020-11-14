@@ -1,6 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { FormsModule } from '@angular/forms';
 
 import { Router } from '@angular/router';
+import { RouterTestingModule } from '@angular/router/testing';
 import { Observable, of } from 'rxjs';
 
 import { Currency } from '../shared/currency.model';
@@ -11,7 +13,6 @@ describe('CurrencyAddComponent', () => {
   let component: CurrencyAddComponent;
   let fixture: ComponentFixture<CurrencyAddComponent>;
   let currencyServiceStub: Partial<CurrencyService>;
-  let router: Router;
 
   currencyServiceStub = {
     getCurrencies() {
@@ -22,7 +23,13 @@ describe('CurrencyAddComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ CurrencyAddComponent ],
-      providers: [ { provide: CurrencyService, useValue: currencyServiceStub } ],
+      imports: [
+        RouterTestingModule,
+        FormsModule
+      ],
+      providers: [
+        { provide: CurrencyService, useValue: currencyServiceStub }
+      ],
     })
     .compileComponents();
   }));
