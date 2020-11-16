@@ -1,36 +1,37 @@
 <form #form="ngForm" (ngSubmit)="form.valid && onSubmit()">
-  <div>
+  <mat-form-field>
+    <mat-label>Code</mat-label>
+    <input matInput type="text" id="code" name="code" #code='ngModel' [(ngModel)]='currency.code' appNameWithNoSpace>
     <div>
-      <label for="code">code</label>
-      <input type="text" id="code" name="code" #code='ngModel' [(ngModel)]='currency.code' appNameWithNoSpace>
-
       <div *ngIf="code.touched && code.invalid">
         <div *ngIf="code.errors.required">code is required</div>
         <div *ngIf="code.errors.canNotContainSpace">code shouldn't contain any space</div>
       </div>
+    </div>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Country</mat-label>
+    <input matInput type="text" id="country" name="country" #country='ngModel' [(ngModel)]='currency.country' required>
+    <div [hidden]="country.untouched || country.valid" class="error">Country is required</div>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Name</mat-label>
+    <input matInput type="text" id="name" name="name" #name='ngModel' [(ngModel)]='currency.name' required>
+    <div [hidden]="name.untouched || name.valid" class="error">Name is required</div>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Symbol</mat-label>
+    <input matInput type="text" id="symbol" name="symbol" #symbol='ngModel' [(ngModel)]='currency.symbol'>
+    <div [hidden]="symbol.untouched || symbol.valid" class="error">Symbol is required</div>
 
-    </div>
-    <div>
-      <label for="country">country</label>
-      <input type="text" id="country" name="country" #country='ngModel' [(ngModel)]='currency.country' required>
-      <div [hidden]="country.untouched || country.valid" class="error">currency is required</div>
-    </div>
-    <div>
-      <label for="name">name</label>
-      <input type="text" id="name" name="name" #name='ngModel' [(ngModel)]='currency.name' required>
-      <div [hidden]="name.untouched || name.valid" class="error">name is required</div>
-    </div>
-    <div>
-      <label for="symbol">symbol</label>
-      <input type="text" id="symbol" name="symbol" #symbol [(ngModel)]='currency.symbol'>
-      <div [hidden]="symbol.untouched || symbol.valid" class="error">symbol is required</div>
-    </div>
-    <div>
-      <label for="symbol">Exchange Rate</label>
-      <input type="text" id="exchangeRate" name="exchangeRate" #exchangeRate [(ngModel)]='currency.exchangeRate'>
-      <div [hidden]="exchangeRate.untouched || exchangeRate.valid" class="error">Exchange Rate is required</div>
-    </div>
-  </div>
+
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Exchange Rate</mat-label>
+    <input matInput type="text" id="exchangeRate" name="exchangeRate" #exchangeRate='ngModel'
+      [(ngModel)]='currency.exchangeRate'>
+    <div [hidden]="exchangeRate.untouched || exchangeRate.valid" class="error">Exchange Rate is required</div>
+  </mat-form-field>
 
   <div>
     <button mat-raised-button color="primary" type="submit" [disabled]='form.invalid'>Save</button>
