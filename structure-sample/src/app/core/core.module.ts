@@ -6,9 +6,8 @@ import { RouterModule } from '@angular/router';
 import { ErrorInterceptor } from './interceptors/error.interceptor';
 import { HeaderComponent } from './layout/header/header.component';
 import { FooterComponent } from './layout/footer/footer.component';
-import { MaterialCollectionModule } from ".././material-collection/material-collection.module";
-import { HomeComponent } from './home';
-import { PageNotFoundComponent } from "./page-not-found";
+import { HomeComponent } from './home/home.component';
+import { PageNotFoundComponent } from "./page-not-found/page-not-found.component";
 import { MatConfirmDialogComponent } from './mat-confirm-dialog/mat-confirm-dialog.componet';
 
 @NgModule({
@@ -20,7 +19,6 @@ import { MatConfirmDialogComponent } from './mat-confirm-dialog/mat-confirm-dial
   ],
   imports: [
     CommonModule,
-    MaterialCollectionModule,
     HttpClientModule,
     RouterModule
   ],
