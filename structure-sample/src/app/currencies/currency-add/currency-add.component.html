@@ -1,4 +1,6 @@
-<form #form="ngForm" (ngSubmit)="form.valid && onSubmit()">
+<form #form="ngForm" fxLayout
+fxLayoutAlign="center"
+fxLayoutGap="10px" (ngSubmit)="form.valid && onSubmit()">
   <mat-form-field>
     <mat-label>Code</mat-label>
     <input matInput type="text" id="code" name="code" #code='ngModel' [(ngModel)]='currency.code' appNameWithNoSpace>
@@ -33,7 +35,7 @@
     <div [hidden]="exchangeRate.untouched || exchangeRate.valid" class="error">Exchange Rate is required</div>
   </mat-form-field>
 
-  <div>
+  <div fxLayout fxLayoutAlign="space-around stretch">
     <button mat-raised-button color="primary" type="submit" [disabled]='form.invalid'>Save</button>
     <button mat-raised-button color="accent" (click)="onClear()">clear form</button>
     <a routerLink='/currencies'>Back to list</a>
