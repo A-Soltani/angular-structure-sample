@@ -9,6 +9,7 @@ import { CurrencyRoutingModule } from './currencies-routing.module';
 import { CurrencyAddComponent } from './currency-add/currency-add.component';
 import { CurrencyEditComponent } from './currency-edit/currency-edit.component';
 import { NameWithNoSpaceValidatorDirective } from '../core/directives/name-with-no-space.directive';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 
 
@@ -27,6 +28,7 @@ import { NameWithNoSpaceValidatorDirective } from '../core/directives/name-with-
     CurrencyRoutingModule,
     MatButtonModule,
     MatInputModule,
+    FlexLayoutModule
   ]
 })
 export class CurrenciesModule { }
