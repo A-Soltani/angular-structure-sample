@@ -1,10 +1,8 @@
-<form #form="ngForm"
-fxLayout
-fxLayoutAlign="center"
-fxLayoutGap="10px" (ngSubmit)="form.valid && onSubmit()">
+fxLayout<form #form="ngForm" (ngSubmit)="form.valid && onSubmit()">
+<div fxLayout fxLayoutGap="10px">
   <mat-form-field>
     <mat-label>Code</mat-label>
-    <input matInput type="text" id="code" name="code" #code='ngModel' [(ngModel)]='currency.code' appNameWithNoSpace>
+    <input matInput type="text" id="code" name="code" #code='ngModel' [(ngModel)]='currency.code' appNameWithNoSpace required>
     <div>
       <div *ngIf="code.touched && code.invalid">
         <div *ngIf="code.errors.required">code is required</div>
@@ -17,6 +15,9 @@ fxLayoutGap="10px" (ngSubmit)="form.valid && onSubmit()">
     <input matInput type="text" id="country" name="country" #country='ngModel' [(ngModel)]='currency.country' required>
     <div [hidden]="country.untouched || country.valid" class="error">Country is required</div>
   </mat-form-field>
+</div>
+
+<div fxLayout fxLayoutGap="10px">
   <mat-form-field>
     <mat-label>Name</mat-label>
     <input matInput type="text" id="name" name="name" #name='ngModel' [(ngModel)]='currency.name' required>
@@ -24,20 +25,21 @@ fxLayoutGap="10px" (ngSubmit)="form.valid && onSubmit()">
   </mat-form-field>
   <mat-form-field>
     <mat-label>Symbol</mat-label>
-    <input matInput type="text" id="symbol" name="symbol" #symbol='ngModel' [(ngModel)]='currency.symbol'>
+    <input matInput type="text" id="symbol" name="symbol" #symbol='ngModel' [(ngModel)]='currency.symbol' required>
     <div [hidden]="symbol.untouched || symbol.valid" class="error">Symbol is required</div>
-
-
   </mat-form-field>
+</div>
+<div fxLayout fxLayoutGap="10px">
   <mat-form-field>
     <mat-label>Exchange Rate</mat-label>
     <input matInput type="text" id="exchangeRate" name="exchangeRate" #exchangeRate='ngModel'
-      [(ngModel)]='currency.exchangeRate'>
+      [(ngModel)]='currency.exchangeRate' required>
     <div [hidden]="exchangeRate.untouched || exchangeRate.valid" class="error">Exchange Rate is required</div>
   </mat-form-field>
+</div>
 
-  <div fxLayout fxLayoutAlign="space-around stretch">
-    <button mat-raised-button color="primary" type="submit" [disabled]='form.invalid'>Save</button>
+<div fxLayout fxLayoutGap="10px">
+  <button mat-raised-button color="primary" type="submit" [disabled]='form.invalid'>Save</button>
     <button mat-raised-button color="accent" (click)="onClear()">clear form</button>
     <a routerLink='/currencies'>Back to list</a>
   </div>
