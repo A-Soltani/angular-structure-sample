@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import {MatSidenavModule} from '@angular/material/sidenav';
+
 
 import { ErrorInterceptor } from './interceptors/error.interceptor';
 import { HeaderComponent } from './layout/header/header.component';
@@ -20,7 +22,8 @@ import { PageNotFoundComponent } from "./page-not-found/page-not-found.component
   imports: [
     CommonModule,
     HttpClientModule,
-    RouterModule
+    RouterModule,
+    MatSidenavModule
   ],
   exports: [
     HeaderComponent,
