@@ -4,6 +4,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import {MatSidenavModule} from '@angular/material/sidenav';
+import { MatToolbarModule } from "@angular/material/toolbar";
 
 
 import { ErrorInterceptor } from './interceptors/error.interceptor';
@@ -25,14 +26,16 @@ import { SidebarComponent } from './layout/sidebar/sidebar.component';
     CommonModule,
     HttpClientModule,
     RouterModule,
-    MatSidenavModule
+    MatSidenavModule,
+    MatToolbarModule
   ],
   exports: [
     HeaderComponent,
     FooterComponent,
     HomeComponent,
     HttpClientModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
