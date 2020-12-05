@@ -12,7 +12,6 @@ import { HeaderComponent } from './layout/header/header.component';
 import { FooterComponent } from './layout/footer/footer.component';
 import { HomeComponent } from './home/home.component';
 import { PageNotFoundComponent } from "./page-not-found/page-not-found.component";
-import { SidebarComponent } from './layout/sidebar/sidebar.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +19,6 @@ import { SidebarComponent } from './layout/sidebar/sidebar.component';
     FooterComponent,
     HomeComponent,
     PageNotFoundComponent,
-    SidebarComponent,
   ],
   imports: [
     CommonModule,
