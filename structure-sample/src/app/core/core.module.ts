@@ -6,7 +6,6 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import { MatToolbarModule } from "@angular/material/toolbar";
 
-
 import { ErrorInterceptor } from './interceptors/error.interceptor';
 import { HeaderComponent } from './layout/header/header.component';
 import { FooterComponent } from './layout/footer/footer.component';
